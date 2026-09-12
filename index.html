@@ -21,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -32,7 +32,7 @@
     --oat:#D6C9A8;        /* single accent */
     --line:rgba(236,237,230,.16);
 
-    --serif:"Newsreader", Georgia, serif;
+    --display:"Instrument Sans", system-ui, sans-serif;
     --sans:"Instrument Sans", system-ui, -apple-system, sans-serif;
 
     --gutter:clamp(1.5rem, 5vw, 3rem);
@@ -139,21 +139,21 @@
   }
 
   h1{
-    font-family:var(--serif);
-    font-weight:500;
-    font-size:clamp(2.5rem, 7.2vw, 4.75rem);
-    line-height:1.02;
-    letter-spacing:-.02em;
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(1.875rem, 4.2vw, 2.875rem);
+    line-height:1.14;
+    letter-spacing:-.022em;
     margin:0 auto;
-    max-width:17ch;
+    max-width:20ch;
     text-wrap:balance;
   }
 
   .lede{
-    font-family:var(--serif);
+    font-family:var(--display);
     font-weight:400;
-    font-size:clamp(1.125rem, 2.1vw, 1.3125rem);
-    line-height:1.68;
+    font-size:clamp(1rem, 1.6vw, 1.0625rem);
+    line-height:1.62;
     color:#B9C0B5;
     max-width:var(--measure);
     margin:clamp(1.5rem, 4vw, 2rem) auto 0;
@@ -240,8 +240,8 @@
   </section>
 
   <section class="statement" id="more">
-    <h1>You’ve eaten thousands of meals. How many did you actually know?</h1>
-    <p class="lede">What you eat shapes your health more than almost anything else you control. But photo apps only guess, and weighing every meal by hand gets old fast. Fitrix weighs your plate and reads what’s on it automatically — real grams, real calories, every meal.</p>
+    <h1>Most people quit tracking their food within a month.</h1>
+    <p class="lede">Not because they stop caring. Because typing in every meal is work, and it never ends. Fitrix takes that away — put your plate down and it weighs your food and recognises what’s on it. Real grams, real calories, nothing to type.</p>
     <div class="signup">
       <a class="cta" href="early-access.html">Get early access</a>
       <p class="note">Takes about ten seconds.</p>
