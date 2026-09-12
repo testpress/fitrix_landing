@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fitrix</title>
+<meta name="description" content="Fitrix measures the true weight and nutrition of every meal you eat, so the single biggest input into how you age is finally something you can see.">
+<meta name="theme-color" content="#141A16">
+<link rel="canonical" href="https://fitrixai.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fitrix">
+<meta property="og:title" content="Fitrix">
+<meta property="og:description" content="Fitrix measures the true weight and nutrition of every meal you eat, so the single biggest input into how you age is finally something you can see.">
+<meta property="og:url" content="https://fitrixai.com/">
+<meta property="og:image" content="https://fitrixai.com/fitrix-device.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#141A16;        /* deep green-black page */
+    --ink-2:#1C2420;      /* raised surface */
+    --bone:#ECEDE6;       /* primary text */
+    --muted:#8E978C;      /* secondary text */
+    --oat:#D6C9A8;        /* single accent */
+    --line:rgba(236,237,230,.16);
+
+    --serif:"Newsreader", Georgia, serif;
+    --sans:"Instrument Sans", system-ui, -apple-system, sans-serif;
+
+    --gutter:clamp(1.5rem, 5vw, 3rem);
+    --measure:34rem;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--bone);
+    font-family:var(--sans);
+    font-size:1.0625rem;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    min-height:100svh;
+  }
+
+  ::selection{ background:var(--oat); color:var(--ink); }
+
+  a{ color:inherit; }
+
+  :focus-visible{
+    outline:2px solid var(--oat);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead{
+    padding:var(--gutter) var(--gutter) 0;
+    text-align:center;
+  }
+
+  .wordmark{
+    display:inline-block;
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:.8125rem;
+    letter-spacing:.34em;
+    text-indent:.34em;   /* optical centring for the tracking */
+    text-decoration:none;
+    color:var(--bone);
+  }
+
+  /* ---------- hero ---------- */
+
+  .hero{
+    position:relative;
+    margin-top:clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .hero img{
+    display:block;
+    width:auto;
+    max-width:min(100% - 2rem, 22rem);
+    max-height:clamp(18rem, 46svh, 30rem);
+    margin:0 auto;
+    height:auto;
+    object-fit:contain;
+  }
+
+  /* the image dissolves into the page rather than sitting in a box */
+  /* image is a cut-out, so it needs no fade to sit on the page */
+
+  /* ---------- statement ---------- */
+
+  main{ flex:1; }
+
+  .statement{
+    padding:clamp(2.75rem, 8vw, 4.5rem) var(--gutter) 0;
+    text-align:center;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(2.25rem, 6.4vw, 4rem);
+    line-height:1.04;
+    letter-spacing:-.015em;
+    margin:0 auto;
+    max-width:19ch;
+    text-wrap:balance;
+  }
+
+  .lede{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(1.0625rem, 1.9vw, 1.1875rem);
+    line-height:1.72;
+    color:var(--muted);
+    max-width:var(--measure);
+    margin:clamp(1.5rem, 4vw, 2rem) auto 0;
+    text-wrap:pretty;
+  }
+
+  /* ---------- signup ---------- */
+
+  .signup{
+    padding:clamp(2.5rem, 7vw, 4rem) var(--gutter) clamp(3rem, 8vw, 5rem);
+    max-width:30rem;
+    margin:0 auto;
+    width:100%;
+    text-align:center;
+  }
+
+  .cta{
+    display:inline-block;
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:.9375rem;
+    text-decoration:none;
+    color:var(--ink);
+    background:var(--bone);
+    border:1px solid var(--bone);
+    border-radius:3px;
+    padding:.875rem 1.75rem;
+    transition:background-color .18s ease, border-color .18s ease;
+  }
+  .cta:hover{ background:var(--oat); border-color:var(--oat); }
+
+  .note{
+    font-size:.8125rem;
+    line-height:1.5;
+    color:var(--muted);
+    margin:1rem 0 0;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:clamp(1.75rem, 4vw, 2.25rem) var(--gutter);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    gap:.75rem clamp(1.25rem, 4vw, 2.25rem);
+    font-size:.8125rem;
+    color:var(--muted);
+    text-align:center;
+  }
+  footer nav{ display:flex; flex-wrap:wrap; justify-content:center; gap:.75rem clamp(1.25rem,4vw,2.25rem); }
+  footer a{ text-decoration:none; transition:color .18s ease; }
+  footer a:hover{ color:var(--bone); }
+  footer small{ font-size:inherit; }
+
+  /* ---------- one page-load reveal ---------- */
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{ opacity:0; transform:translateY(10px); animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
+    .hero{ animation-delay:.05s; }
+    h1{ animation-delay:.22s; }
+    .lede{ animation-delay:.34s; }
+    .signup{ animation-delay:.46s; }
+    @keyframes rise{ to{ opacity:1; transform:none; } }
+  }
+
+  @media (max-width:26rem){
+    .cta{ display:block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <a class="wordmark" href="/">FITRIX</a>
+</header>
+
+<main>
+  <div class="hero reveal">
+    <img src="fitrix-device.png"
+         alt="The Fitrix scale with a served meal on it."
+         width="548" height="768">
+  </div>
+
+
+  <section class="statement">
+    <h1 class="reveal">What does it take to stay healthy for another forty years?</h1>
+    <p class="lede reveal">Nothing shapes how long you live more than what you eat, every day, for decades. Fitrix measures it — the true weight of your plate, the real calories, the real macros, meal after meal. No photos, no guessing, no typing. Just the one input that compounds over a lifetime, finally known.</p>
+  </section>
+
+  <section class="signup reveal">
+    <a class="cta" href="early-access.html">Get early access</a>
+    <p class="note">Takes about ten seconds.</p>
+  </section>
+</main>
+
+<footer>
+  <nav>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/terms-of-use">Terms of Use</a>
+    <a href="https://instagram.com/">Instagram</a>
+    <a href="https://x.com/">X</a>
+    <a href="https://linkedin.com/">LinkedIn</a>
+  </nav>
+  <small>© 2026 Testpress Tech Labs</small>
+</footer>
+
+
+
+</body>
+</html>
