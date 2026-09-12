@@ -21,7 +21,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -41,7 +41,8 @@
 
   *,*::before,*::after{ box-sizing:border-box; }
 
-  html{ -webkit-text-size-adjust:100%; }
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
 
   body{
     margin:0;
@@ -84,52 +85,76 @@
     color:var(--bone);
   }
 
-  /* ---------- hero ---------- */
+  /* ---------- hero: owns the first screen ---------- */
 
   .hero{
     position:relative;
-    margin-top:clamp(2rem, 6vw, 3.5rem);
+    min-height:calc(100svh - 7rem);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:0 var(--gutter) 5rem;
   }
 
   .hero img{
     display:block;
     width:auto;
-    max-width:min(100% - 2rem, 22rem);
-    max-height:clamp(18rem, 46svh, 30rem);
-    margin:0 auto;
+    max-width:min(100% - 2rem, 23rem);
+    max-height:min(68svh, 34rem);
     height:auto;
     object-fit:contain;
   }
 
-  /* the image dissolves into the page rather than sitting in a box */
-  /* image is a cut-out, so it needs no fade to sit on the page */
+  .cue{
+    position:absolute;
+    left:50%;
+    bottom:2rem;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:.625rem;
+    font-size:.75rem;
+    letter-spacing:.12em;
+    color:var(--muted);
+    text-decoration:none;
+    transition:color .2s ease;
+  }
+  .cue:hover{ color:var(--bone); }
+  .cue svg{ width:14px; height:23px; }
 
   /* ---------- statement ---------- */
 
   main{ flex:1; }
 
   .statement{
-    padding:clamp(2.75rem, 8vw, 4.5rem) var(--gutter) 0;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:clamp(3rem, 10vw, 6rem) var(--gutter);
     text-align:center;
   }
 
   h1{
     font-family:var(--serif);
-    font-weight:300;
-    font-size:clamp(2.25rem, 6.4vw, 4rem);
-    line-height:1.04;
-    letter-spacing:-.015em;
+    font-weight:500;
+    font-size:clamp(2.5rem, 7.2vw, 4.75rem);
+    line-height:1.02;
+    letter-spacing:-.02em;
     margin:0 auto;
-    max-width:19ch;
+    max-width:17ch;
     text-wrap:balance;
   }
 
   .lede{
     font-family:var(--serif);
-    font-weight:300;
-    font-size:clamp(1.0625rem, 1.9vw, 1.1875rem);
-    line-height:1.72;
-    color:var(--muted);
+    font-weight:400;
+    font-size:clamp(1.125rem, 2.1vw, 1.3125rem);
+    line-height:1.68;
+    color:#B9C0B5;
     max-width:var(--measure);
     margin:clamp(1.5rem, 4vw, 2rem) auto 0;
     text-wrap:pretty;
@@ -138,11 +163,7 @@
   /* ---------- signup ---------- */
 
   .signup{
-    padding:clamp(2.5rem, 7vw, 4rem) var(--gutter) clamp(3rem, 8vw, 5rem);
-    max-width:30rem;
-    margin:0 auto;
-    width:100%;
-    text-align:center;
+    margin-top:clamp(2.5rem, 6vw, 3.5rem);
   }
 
   .cta{
@@ -191,9 +212,8 @@
   @media (prefers-reduced-motion:no-preference){
     .reveal{ opacity:0; transform:translateY(10px); animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards; }
     .hero{ animation-delay:.05s; }
-    h1{ animation-delay:.22s; }
-    .lede{ animation-delay:.34s; }
-    .signup{ animation-delay:.46s; }
+    .cue{ animation:fade 1s ease 1.1s both; }
+    @keyframes fade{ from{ opacity:0; } to{ opacity:1; } }
     @keyframes rise{ to{ opacity:1; transform:none; } }
   }
 
@@ -209,21 +229,23 @@
 </header>
 
 <main>
-  <div class="hero reveal">
+  <section class="hero reveal">
     <img src="fitrix-device.png"
          alt="The Fitrix scale with a served meal on it."
          width="548" height="768">
-  </div>
-
-
-  <section class="statement">
-    <h1 class="reveal">What does it take to stay healthy for another forty years?</h1>
-    <p class="lede reveal">Nothing shapes how long you live more than what you eat, every day, for decades. Fitrix measures it — the true weight of your plate, the real calories, the real macros, meal after meal. No photos, no guessing, no typing. Just the one input that compounds over a lifetime, finally known.</p>
+    <a class="cue" href="#more">
+      <span>Scroll</span>
+      <svg viewBox="0 0 16 26" aria-hidden="true" focusable="false"><path d="M8 0 V22 M2 16 L8 22 L14 16" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
   </section>
 
-  <section class="signup reveal">
-    <a class="cta" href="early-access.html">Get early access</a>
-    <p class="note">Takes about ten seconds.</p>
+  <section class="statement" id="more">
+    <h1>You’ve eaten thousands of meals. How many did you actually know?</h1>
+    <p class="lede">What you eat shapes your health more than almost anything else you control. But photo apps only guess, and weighing every meal by hand gets old fast. Fitrix weighs your plate and reads what’s on it automatically — real grams, real calories, every meal.</p>
+    <div class="signup">
+      <a class="cta" href="early-access.html">Get early access</a>
+      <p class="note">Takes about ten seconds.</p>
+    </div>
   </section>
 </main>
 
